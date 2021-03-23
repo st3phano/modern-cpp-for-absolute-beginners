@@ -5,7 +5,7 @@ int main()
 {
 	std::string my_string{ "Hello C++ World." };
 	char char_to_find{ 'C' };
-	auto char_found{ my_string.find(char_to_find) };
+	std::string::size_type char_found{ my_string.find(char_to_find) };
 
 	if (char_found != std::string::npos)
 	{
