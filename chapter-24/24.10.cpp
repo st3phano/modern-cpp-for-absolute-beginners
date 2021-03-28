@@ -26,7 +26,6 @@ public:
 		return lhs; // uses the move constructor
 	}
 
-
 	void print_data()
 	{
 		std::cout << "my_int: " << my_int << '\n';
