@@ -10,6 +10,7 @@ private:
 public:
 
 	MyClass(int my_int_init, int my_int_ptr_init);
+	~MyClass();
 	MyClass(const MyClass& copy_from);
 	void print_data();
 };
@@ -17,15 +18,21 @@ public:
 // constructor
 MyClass::MyClass(int my_int_init, int my_int_ptr_init)
 	: my_int{ my_int_init },
-	  my_int_ptr{ new int{ my_int_ptr_init } }
+	my_int_ptr{ new int{ my_int_ptr_init } }
 {
 
+}
+
+//destructor
+MyClass::~MyClass()
+{
+	delete my_int_ptr;
 }
 
 // copy constructor
 MyClass::MyClass(const MyClass& copy_from)
 	: my_int{ copy_from.my_int },
-	  my_int_ptr{ new int{ *(copy_from.my_int_ptr) } } // deep copy of my_int_ptr
+	my_int_ptr{ new int{ *(copy_from.my_int_ptr) } } // deep copy of my_int_ptr
 {
 
 }
