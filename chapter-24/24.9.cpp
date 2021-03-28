@@ -16,12 +16,17 @@ public:
 
 	}
 
+	~MyClass()
+	{
+		delete my_int_ptr;
+	}
+
 	// move constructor
 	MyClass(MyClass&& move_from)
 		: my_int{ std::move(move_from.my_int) },
 		  my_int_ptr{ std::move(move_from.my_int_ptr) }
 	{
-
+		move_from.my_int_ptr = nullptr;
 	}
 
 	void print_data()
@@ -39,8 +44,6 @@ int main()
 
 	MyClass my_object_b{ std::move(my_object_a) };
 	my_object_b.print_data();
-
-	my_object_a.print_data();
 
 	return 0;
 }
