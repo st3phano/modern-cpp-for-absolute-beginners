@@ -13,7 +13,7 @@ public:
 		
 	}
 
-	void print_my_data()
+	void print_my_data() const
 	{
 		std::cout << "my_int: " << my_int << '\n';
 		std::cout << "my_double: " << my_double << '\n';
